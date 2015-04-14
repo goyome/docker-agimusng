@@ -7,10 +7,13 @@
    1. ES_LOCAL_PORT : port out of container (local) to use elasticsearch
    2. KB_LOCAL_PORT : port out of container (local) to use kibana
    3. PERSISTANT_PATH :  path out of container (local) to store persistant data of container (must be a real path)
+ 6. Find container IP
+   1. on linux : "/sbin/ifconfig docker0 | grep "inet adr" | awk -F: '{print $2}' | awk '{print $1}'"
+   2; on windows using boot2docker : boot2docker.exe ip
  6. Use your browser
-   1. go to elasticsearch : http://DOCKER_IP:9200
+   1. go to Elasticsearch : http://DOCKER_IP:9200
    2. go to KOPF (health dashboard): http://DOCKER_IP:9200/_plugin/kopf/
    3. go to Sense (request editor): http://DOCKER_IP:9200/_plugin/marvel/sense/
    4. go to Kibana : http://DOCKER_IP:5601
-   
-   
+
+To stop this container "exit"
