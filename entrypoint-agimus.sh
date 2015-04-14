@@ -41,6 +41,7 @@ more /tmp/README.md
 echo "--------------------------------------------------------------------------------------------------"
 echo ""
 echo ""
+rm -f /tmp/README.md
 
 # As argument is not related to elasticsearch,
 # then assume that user wants to run his own process,
