@@ -5,7 +5,8 @@ MAINTAINER "Julien MARCHAL <julien.marchal@univ-lorraine.fr>"
 # Installation de base
 #
 RUN apt-get update
-RUN apt-get install -y sudo wget curl vim apt-utils procps python
+RUN apt-get install -y wget curl procps python
+#sudo vim apt-utils 
 
 RUN wget --quiet --no-check-certificate "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" -O /usr/local/bin/gosu \
     && chmod +x /usr/local/bin/gosu
@@ -91,4 +92,8 @@ ENTRYPOINT ["/entrypoint-agimus.sh"]
  
 EXPOSE 9200 9300 5601
 
-CMD ["elasticsearch"]
+
+# Clean up 
+RUN apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
